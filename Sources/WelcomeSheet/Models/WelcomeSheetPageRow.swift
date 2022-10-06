@@ -54,6 +54,12 @@ public struct WelcomeSheetPageRow: Identifiable, Decodable {
         self.init(image: Image(systemName: imageSystemName), title: title, content: content)
         self.accentColor = accentColor
     }
+
+    /// Creates welcome sheet page row with named image, given title and content. Tints image with specified colour.
+    public init(imageNamed: String, accentColor: Color? = nil, title: String, content: String) {
+        self.init(image: Image(imageNamed), title: title, content: content)
+        self.accentColor = accentColor
+    }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
